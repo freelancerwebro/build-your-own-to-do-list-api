@@ -4,12 +4,14 @@ declare(strict_types=1);
 
 namespace App\DTO;
 
+use App\Validator\UniqueEmail;
 use Symfony\Component\Validator\Constraints as Assert;
 
 class RegisterUserDTO
 {
     #[Assert\NotBlank(message: 'Email is required.')]
     #[Assert\Email]
+    #[UniqueEmail]
     public string $email;
 
     #[Assert\NotBlank(message: 'Password is required.')]
