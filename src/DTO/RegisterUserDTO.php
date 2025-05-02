@@ -26,4 +26,14 @@ class RegisterUserDTO
         message: 'Password must contain at least one uppercase, one lowercase, one number, and one special character.'
     )]
     public string $password;
+
+    #[Assert\NotBlank(message: 'Name is required.')]
+    public string $name;
+
+    #[Assert\NotBlank(message: 'AccountType is required.')]
+    #[Assert\Choice(choices: ['freelancer', 'company'], message: 'Choose a valid account type (freelancer, company).')]
+    public string $accountType;
+
+    #[Assert\NotBlank(message: 'Country is required.')]
+    public string $country;
 }

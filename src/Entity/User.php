@@ -22,6 +22,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255)]
     private ?string $password = null;
 
+    #[ORM\Column(type: 'string', length: 255)]
+    private string $name;
+
+    #[ORM\Column(type: 'string', length: 50)]
+    private string $accountType;
+
+    #[ORM\Column(type: 'string', length: 100)]
+    private string $country;
+
     #[ORM\Column(type: 'json')]
     private array $roles = [];
 
@@ -86,5 +95,41 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function eraseCredentials(): void
     {
         // TODO: Implement eraseCredentials() method.
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): static
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getAccountType(): ?string
+    {
+        return $this->accountType;
+    }
+
+    public function setAccountType(string $accountType): static
+    {
+        $this->accountType = $accountType;
+
+        return $this;
+    }
+
+    public function getCountry(): ?string
+    {
+        return $this->country;
+    }
+
+    public function setCountry(string $country): static
+    {
+        $this->country = $country;
+
+        return $this;
     }
 }

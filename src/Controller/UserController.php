@@ -32,6 +32,9 @@ final class UserController extends AbstractController
                 'token' => $jwtManager->create($user),
                 'user' => [
                     'email' => $dto->email,
+                    'name' => $dto->name,
+                    'accountType' => $dto->accountType,
+                    'country' => $dto->country,
                 ],
             ],
         ]);

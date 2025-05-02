@@ -24,6 +24,9 @@ readonly class UserRegistrationService
         $user->setPassword(
             $this->passwordHasher->hashPassword($user, $dto->password)
         );
+        $user->setName($dto->name);
+        $user->setAccountType($dto->accountType);
+        $user->setCountry($dto->country);
 
         $this->entityManager->persist($user);
         $this->entityManager->flush();
